@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niraj Shukla - Personal Website</title>
+    <link rel="stylesheet" href="personal.css">
+</head>
+<body>
+    <header>
+        <div class="container-a">
+            <h1>NIRAJ SHUKLA</h1>
+            <nav>
+                <ul>
+                    <li><a href="personal.html">Home</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="teaching.html">Teaching</a></li>
+                    <li><a href="work-experience.html">Work Experience</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="container-b">
+            <h5 class="title">Fintech Professional, Educator</h5> <!-- Title added here -->
+        </div>
+    </header>
+
+    <!-- Blog Page Content -->
+    <main>
+        <section class="blog">
+            <h2>My Blog</h2>
+
+            <!-- Blog Post Form -->
+            <div class="blog-form">
+                <h3>Write a New Blog Post</h3>
+                <form id="postForm">
+                    <input type="text" id="postTitle" placeholder="Post Title" required>
+                    <textarea id="postContent" placeholder="Write your blog content here..." required></textarea>
+                    <button type="submit">Publish</button>
+                </form>
+            </div>
+
+            <!-- Blog Posts Section -->
+            <div class="blog-posts">
+                <h3>Recent Posts</h3>
+                <div id="postsContainer">
+                    <!-- Blog posts will be added here dynamically -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // JavaScript to handle form submission and post display
+        document.getElementById('postForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const title = document.getElementById('postTitle').value;
+            const content = document.getElementById('postContent').value;
+
+            // Create a new post element
+            const postElement = document.createElement('div');
+            postElement.classList.add('post');
+            postElement.innerHTML = `<h4>${title}</h4><p>${content}</p>`;
+
+            // Add the new post to the posts container
+            document.getElementById('postsContainer').prepend(postElement);
+
+            // Clear the form
+            document.getElementById('postForm').reset();
+        });
+    </script>
+</body>
+</html>
